@@ -1,9 +1,3 @@
-
-# coding: utf-8
-
-# In[1]:
-
-
 import numpy as np
 import torch
 import torch.nn as nn
@@ -13,9 +7,6 @@ from torch.autograd import Variable
 import h5py
 
 
-# In[32]:
-
-
 cifar_data = h5py.File('CIFAR10.hdf5','r')
 x_train = np.float32(np.array(cifar_data['X_train']))
 y_train = np.int32(np.array(cifar_data['Y_train']))
@@ -23,8 +14,6 @@ x_test = np.float32(np.array(cifar_data['X_test']))
 y_test = np.int32(np.array(cifar_data['Y_test']))
 cifar_data.close()
 
-
-# In[33]:
 
 
 class CIFARModel(nn.Module):
@@ -63,10 +52,7 @@ class CIFARModel(nn.Module):
         x = self.fc3(x)
         x = F.log_softmax(x,dim=1)
         return x
-    
-
-
-# In[34]:
+   
 
 
 model = CIFARModel()
